@@ -12,6 +12,8 @@ int main() {
     if (file == NULL) {
         delete[] str;
         delete[] arr;
+        delete f[0];
+        delete f[1];
         printf("File does not exist");
         return -1;
     }
