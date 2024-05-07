@@ -111,7 +111,7 @@ Child0 operator+ (const Base& obj, const Base& other) {
 }
 
 Child1 sumAll(Base** arr, int size) {
-    Child1 res(0, 0);
+    Child0 res(0, 0);
     res = (*arr[0]) + (*arr[1]);
 
     for (int i = 2; i < size; i++)

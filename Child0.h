@@ -6,8 +6,16 @@ public:
     Child0(double* nums, int len, int cap) : Base(nums, len, cap) {}
     Child0(int len, int cap) : Base(len, cap) {}
 
+    Child0(const Base& other) : Base(other) {}
+    Child0(Base&& other) : Base(std::move(other)) {}
+
     Child0& operator= (const Base& other) {
         Base::operator=(other);
+        return *this;
+    }
+
+    Child0& operator= (Base&& other) {
+        Base::operator=(std::move(other));
         return *this;
     }
 
