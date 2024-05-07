@@ -1,15 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <cstring>
-#include <limits>
-#include <cmath>
-
-#include "Base.h"
-#include "Factory.h"
-#include "Child0.h"
-#include "Child1.h"
+#include "libs.h"
 
 Base* CreateData(const char* str, Factory** f) {
     int I = 0, start = 0, x = 0, file_cap = 2, file_size = 0;
@@ -110,15 +99,6 @@ Child0 operator+ (const Base& obj, const Base& other) {
     return item;
 }
 
-Child1 sumAll(Base** arr, int size) {
-    Child0 res(0, 0);
-    res = (*arr[0]) + (*arr[1]);
-
-    for (int i = 2; i < size; i++)
-        res = res + (*arr[i]);
-    return res;
-}
-
 Child0 operator--(Base& obj, int) {
     Child0 tmp(obj.arr, obj.length, obj.capacity);
     if (obj.length > 0)
@@ -141,10 +121,11 @@ Child0 operator++(Base& obj, int) {
     return tmp;
 }
 
-Base* Factory_Child0::create(double* nums, int len, int cap, char* name) {
-    return new Child0(nums, len, cap, name);
-}
+Child1 sumAll(Base** arr, int size) {
+    Child0 res(0, 0);
+    res = (*arr[0]) + (*arr[1]);
 
-Base* Factory_Child1::create(double* nums, int len, int cap, char* name) {
-    return new Child1(nums, len, cap, name);
+    for (int i = 2; i < size; i++)
+        res = res + (*arr[i]);
+    return res;
 }
