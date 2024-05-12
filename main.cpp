@@ -4,7 +4,7 @@ int main() {
     int capacity = 1, size = 0, str_cap = 2, str_size = 0;
     Base** arr = new Base * [capacity], ** data = nullptr, * base;
     FILE* file = fopen("input.txt", "r");
-    char* str = new char[str_cap], * str_data = nullptr, sym;
+    char* str = new char[str_cap], * str_data = nullptr, sym = '.';
     Factory* f[2] = { new Factory_Child0, new Factory_Child1};
 
     memset(str, 0, str_cap);
