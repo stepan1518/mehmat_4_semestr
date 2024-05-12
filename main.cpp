@@ -18,7 +18,7 @@ int main() {
         return -1;
     }
 
-    while (1) {
+    while (sym != EOF) {
         sym = fgetc(file);
 
         if (str_size + 1 >= str_cap) {
@@ -51,8 +51,6 @@ int main() {
 
         str_size = 0;
         str[0] = '\0';
-
-        if (sym == EOF) break;
     }
 
     fclose(file);
