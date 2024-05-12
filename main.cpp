@@ -21,6 +21,8 @@ int main() {
     while (sym != EOF) {
         sym = fgetc(file);
 
+        if (sym == EOF) break;
+
         if (str_size + 1 >= str_cap) {
             str_cap *= 2;
             str_data = new char[str_cap];
